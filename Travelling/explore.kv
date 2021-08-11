@@ -1,0 +1,108 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+<Explore>
+
+    MDBoxLayout:
+        orientation:'vertical'
+
+
+        MDToolbar:
+            md_bg_color: 1,1,1,1
+            title: 'Travel Expert '
+            specific_text_color: get_color_from_hex("#FFCE23")
+            left_action_items:[["menu-open"]]
+            right_action_items:[["magnify"],["dots-vertical"]]
+        ScreenManager:
+            id:screen_manager
+            Screen:
+                name:"explore"
+                MDBoxLayout:
+                    ScrollView:
+                        bar_width:0
+                        do_scroll_x:False
+                        MDList:
+                            MDBoxLayout:
+                                adaptive_height:True
+                                MDBoxLayout:
+
+                                    orientation:'vertical'
+                                    id:timeline
+                                    MDCard:
+                                        orientation:"horizontal"
+                                        MDBoxLayout:
+                                            MDLabel:
+                                                text:"hsjs"
+                                        MDBoxLayout:
+                                            FitImage:
+                                                source:"F:\F\KivyMD\Cheth\pk.jpg"
+                                                radius:[27, ]
+                            MDSeparator:
+                            MDBoxLayout:
+                                MDCard:
+                                    MDBoxLayout:
+                                        MDLabel:
+                                            text:"clnsommakalajpojnipkjnivsututgfugajuoijhouugfdedswezfcqjbop13546576898081iuqhwb ashbnz"
+                                    MDBoxLayout:
+                                        FitImage:
+                                            source:"F:\F\KivyMD\Cheth\pk.jpg"
+                                            radius:[27, ]
+                            MDBoxLayout:
+
+                                MDCard:
+                                    MDBoxLayout:
+                                        MDLabel:
+                                            text:"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm ashbnz"
+                                    MDBoxLayout:
+                                        FitImage:
+                                            source:"F:\F\KivyMD\Cheth\pk.jpg"
+                                            radius:[27, ]
+            Screen:
+                name:"find"
+                MDBoxLayout:
+                    MDRoundFlatButton:
+                        text:"Write Something Here ..... "
+                        size_hint:1, .1
+                        line_color:0,0,0, 1
+                        text_color:0,0,0, 1
+                    MDRoundFlatButton:
+                        text:"Write Something Here ..... "
+                        size_hint:1, .1
+                        line_color:0,0,0, 1
+                        text_color:0,0,0, 1
+                MDBoxLayout:
+                    ScrollView:
+
+            Screen:
+                name:"settings"
+                MDLabel:
+                    text:"settings"
+
+
+        MDBoxLayout:
+            md_bg_color:get_color_from_hex("#FFCE23")
+            adaptive_size:True
+            height:30
+            spacing:28
+            MDIconButton:
+                icon:"home"
+                on_release:
+                    screen_manager.current="settings"
+            MDIconButton:
+                icon:"bike-fast"
+                on_release:
+                    screen_manager.current="explore"
+            MDIconButton:
+                icon:"database-search-outline"
+                on_release:
+                    screen_manager.current="find"
+            MDIconButton:
+                icon:"basket-fill"
+                on_release:
+                    screen_manager.current="settings"
+            MDIconButton:
+                icon:"menu"
+                on_release:
+                    screen_manager.current="settings"
+
+
+

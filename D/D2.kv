@@ -1,0 +1,99 @@
+
+Screen:
+
+
+    MDNavigationLayout:
+        x:toolbar.height
+        ScreenManager:
+            id:screen_manager
+            Screen:
+                name:"sub"
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDToolbar:
+                        id:toolbar
+                        title: "Doora"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [['brightness-6', lambda x: app.theme()]]
+
+
+                    MDLabel:
+                        id : pl
+                        text:"Chethan D"
+                        font_style:"Subtitle1"
+                        size_hint_y:None
+                        height:self.texture_size[1]
+                        pos_hint:{'center_x':0.5,'center_y':0.5}
+                    MDRaisedButton:
+                        text: "Start"
+                        md_bg_color: 0, 0.26, 0.27, 1
+                        pos_hint: {"center_x": 0.5, "center_y": 0.2}
+                        on_press: root.manager.current = "main"
+
+                    MDBottomAppBar:
+                        MDToolbar:
+                            left_action_items: [['coffee', lambda x: mike.set_state("open")]]
+                            right_action_items: [['brightness']]
+                            mode: 'end'
+                            type: 'bottom'
+                            icon: 'account'
+                            on_action_button: app.navig()
+            Screen:
+                name: "main"
+
+                MDLabel:
+                    text: "School guru"
+                    font_style: "H3"
+                    pos_hint: {"center_y": 0.8}
+                    halign: "center"
+        MDNavigationDrawer:
+            id: nav_drawer
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+            BoxLayout:
+                id:content_drawer
+                orientation: "vertical"
+                spacing: '8dp'
+                padding: '8dp'
+                Image:
+                    source:"pk.jpg"
+                AnchorLayout:
+                    anchor_x: "left"
+                    size_hint_y: None
+                    height: avatar.height
+
+                    Image:
+                        id: avatar
+                        size_hint: None, None
+                        size: "56dp", "56dp"
+                        source: "pk.jpg"
+
+                MDLabel:
+                    text: "KivyMD library"
+                    font_style: "Button"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "kivydevelopment@gmail.com"
+                    font_style: "Caption"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                ScrollView:
+                    MDList:
+                        id:md_list
+                        OneLineIconListItem:
+                            text: 'i1'
+
+                            IconLeftWidget:
+                                icon: 'account'
+                            on_press:
+                                root.nav_drawer.set_state("close")
+                                root.screen_manager.current = main
+
+                        OneLineListItem:
+                            text: 'i2'
+

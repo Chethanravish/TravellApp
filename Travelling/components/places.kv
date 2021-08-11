@@ -1,0 +1,37 @@
+<Places>
+    orientation:'vertical'
+    size_hint_y:None
+    height:"520dp"
+    spacing:10
+
+    MDBoxLayout:
+        padding:"5dp"
+        adaptive_height:True
+
+        TwoLineAvatarIconListItem:
+            text:root.name
+            secondary_text:root.save
+            divider:None
+            _no_ripple_effect:True
+
+            ImageLeftWidget:
+                source:root.avatar
+                radius:[20, ]
+
+        MDIconButton:
+            icon:"dots-hoizontal"
+    MDBoxLayout:
+        adaptive_height:True
+        height:10
+        padding:10,0,0,0
+        MDLabel:
+            text:root.caption
+            adaptive_height: True
+    FitImage:
+        adaptive_height:True
+        source:root.place
+
+    MDBoxLayout:
+        adaptive_height:True
+        padding:5
+        spacing:1
